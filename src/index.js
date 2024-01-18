@@ -13,13 +13,18 @@ startButton.addEventListener("click", () => {
 })
 
 
+let display = document.getElementById('time')
 
 // ITERATION 2: Start Countdown
 function startCountdown() {
-  console.log("startCountdown called!");
-
-
-  // Your code goes here ...
+  let i = remainingTime;
+  const intervalID = setInterval(function () {
+    display.innerHTML = i
+    i--;
+    if (i < 0) {
+      clearInterval(intervalID);
+    }
+  }, 1000);
 }
 
 
