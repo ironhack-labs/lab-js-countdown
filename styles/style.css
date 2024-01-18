@@ -71,6 +71,7 @@ button:disabled {
   z-index: 1;
   transform: translateX(-50%); /* Center the toast dynamically */ 
   overflow: hidden;
+  display:block;
 }
 
 .show {
