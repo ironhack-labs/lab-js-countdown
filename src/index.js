@@ -3,7 +3,6 @@ let remainingTime = DURATION; // Countdown starting from 10
 let timer = null; // Variable to store the interval
 
 // ITERATION 1: Add event listener to the start button
-
 const startBtn = document.getElementById("start-btn");
 startBtn.addEventListener("click", () => {
   startCountdown();
@@ -12,36 +11,42 @@ startBtn.addEventListener("click", () => {
 // ITERATION 2: Start Countdown
 function startCountdown() {
   let remainingTime = DURATION;
-  document.getElementById("time").textContent = remainingTime;
   document.getElementById("start-btn").disabled = true;
-  let timerId = setInterval(() => {
+
+  timer = setInterval(() => {
     remainingTime--;
     document.getElementById("time").textContent = remainingTime;
-    if (remainingTime === 10) {
+
+    if (remainingTime === 9) {
       showToast("Final countdown!");
     } else if (remainingTime === 5) {
-      showToast("Hurry up!");
+      showToast("Hurry!");
     } else if (remainingTime === 0) {
-      clearInterval(timerId);
-      showToast("That's it. Times up.");
+      showToast("Time's up!");
+      clearInterval(timer);
       document.getElementById("start-btn").disabled = false;
     }
   }, 1000);
 }
 
 // ITERATION 3: Show Toast
+// BONUS: ITERATION 4: TOAST CLOSE BUTTON
 function showToast(message) {
+  console.log("showToast called!");
   const toastCard = document.getElementById("toast");
+  const toastMsg = document.getElementById("toast-message");
   toastCard.classList.add("show");
-  toastCard.textContent = message;
-  const toastID = setTimeout(() => {
+  toastMsg.textContent = message;
+  const timeOut = setTimeout(() => {
     toastCard.classList.remove("show");
   }, 3000);
   const closeBtn = document.getElementById("close-toast");
+  deleteButton(closeBtn, toastCard);
+}
+
+function deleteButton(closeBtn, toastCard) {
   closeBtn.addEventListener("click", () => {
-    clearTimeout(toastID);
+    clearTimeout();
     toastCard.classList.remove("show");
   });
 }
-
-// BONUS: ITERATION 4: TOAST CLOSE BUTTON
