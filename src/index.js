@@ -22,6 +22,7 @@ function startCountdown() {
   let counter = 10
   startBtn.disabled = true
   const timer = setInterval(() => {
+    timeElement.innerHTML = counter;
     if (counter === 10) {
       showToast("⏰ Final countdown! ⏰")
     }
@@ -32,10 +33,9 @@ function startCountdown() {
       showToast()
       clearInterval(timer);
     }
-    else {
-      counter--;
-      timeElement.innerHTML = counter;
-    }
+    counter--;
+
+
   }, 1000)
 }
 
