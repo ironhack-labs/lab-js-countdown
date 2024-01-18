@@ -49,7 +49,7 @@ Now that we have explored the world of asynchronous JavaScript, it is time to pr
 - Upon completion, run the following commands:
 
 ```bash
-git add .
+git  .
 git commit -m "Solved lab"
 git push origin master
 ```
@@ -107,8 +107,9 @@ Your task in the following iterations is to implement the countdown timer and th
 
 ### Iteration 1 | Start Button
 
-To start the counter, we'll need to add an event listener to the start button (<kbd>Start Countdown</kbd>) .
-Add a *click* event listener to the start button. When clicked, the event should trigger the existing function `startCountdown()`.
+To start the counter, we'll need to  an event listener to the start button (<kbd>Start Countdown</kbd>).
+
+Go ahead and add a *click* event listener to the start button. When clicked, the event should trigger the existing function `startCountdown()`.
 
 <br>
 
@@ -174,11 +175,27 @@ The start button (`button#start-btn`) should be disabled during the countdown so
 
 ### Iteration 3 | Show Toast
 
-A *Toast* is a small message that appears on the screen for a few seconds. It's usually used to display a feedback, notifications, or a confirmation message to the user. For example, when you make a purchase on Amazon, a toast message appears to confirm that your order has been placed.
+A *Toast* is a small message that appears on the screen for a few seconds. It's usually used to display a feedback, notifications, or a confirmation message to the user. For example, when you make a purchase on Amazon, or send an email using Gmail, a toast message appears to confirm that the operations was successful.
+
+
+<details>
+  <summary><b>See Example</b></summary>
+
+  <br>  
+
+  <p align="center">
+    <img src="https://education-team-2020.s3.eu-west-1.amazonaws.com/web-dev/labs/lab-js-countdown/toast-message-example.png" width="350" alt="Gmail toast message example">
+  </p>
+
+  <br>
+
+  <hr>
+
+</details>
 
 <br> 
 
-As the last step in the previous iteration, when the countdown timer reaches 0, we call a function called `showToast()`. In this iteration, we'll implement the `showToast()` function.
+As the last step in the previous iteration, when the countdown timer reaches 0, we call a function called `showToast()`, however the function logic is not implemented yet. In this iteration, we'll implement the `showToast()` function so that it displays a toast message on the screen.
 
 <br>
 
@@ -194,10 +211,7 @@ The `index.html` file already contains the HTML for the *toast card* (`div#toast
 
 <br>
 
-The toast card is set to be hidden at first and should only be shown when the countdown timer reaches 0.
-
-
-
+The toast card is set to be hidden at first and should only be shown when the countdown timer reaches 0.<br>
 To show the toast card element, we need to update the CSS property `display` to `"block"`. We already have a CSS class called `show` that does this. To show the toast card, we simply add the `"show"` class to the toast card, and it will become visible. We will use the `showToast()` function to do this.
 
 
