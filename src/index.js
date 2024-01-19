@@ -1,4 +1,4 @@
-const DURATION = 2; // 10 seconds
+const DURATION = 10; // 10 seconds
 let remainingTime = DURATION; // Countdown starting from 10
 let timer = null; // Variable to store the interval
 const countdownButton = document.getElementById("start-btn");
