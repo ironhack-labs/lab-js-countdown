@@ -33,7 +33,7 @@ function startCountdown() {
     remainingTime--;
     time.innerText = remainingTime;
 
-    if (remainingTime < 0) {
+    if (remainingTime <= 0) {
       clearInterval(intervalId);
       showToast("Lift off! 🚀");
     }
