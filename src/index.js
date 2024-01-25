@@ -43,10 +43,6 @@ function startCountdown() {
           showToast(msg2);
           break;
       
-        case 1:
-          showToast(msg3);
-          break;
-      
       }
 
       remainingTime--;
@@ -55,6 +51,7 @@ function startCountdown() {
 
     } else if (remainingTime === 0) {
       
+      showToast(msg3);
       time.innerText = remainingTime;
       startButton.disabled = false;
       clearInterval(intervalFunc);
