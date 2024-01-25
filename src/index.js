@@ -6,9 +6,9 @@ const toast = document.querySelector(".toast");
 const closeToast = document.querySelector("#close-toast");
 const toastMessage = document.querySelector("#toast-message");
 
-const msg1 = `Lift off! 🚀`
+const msg1 = `⏰ Final countdown! ⏰`
 const msg2 = `Start the engines! 💥`
-const msg3 = `Start the engines! 💥`
+const msg3 = `Lift off! 🚀`
 
 // ITERATION 1: Add event listener to the start button
 
@@ -53,7 +53,7 @@ function startCountdown() {
       time.innerText = remainingTime;
       
 
-    } else {
+    } else if (remainingTime === 0) {
       
       time.innerText = remainingTime;
       startButton.disabled = false;
