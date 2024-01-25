@@ -6,7 +6,9 @@ const toast = document.querySelector(".toast");
 const closeToast = document.querySelector("#close-toast");
 const toastMessage = document.querySelector("#toast-message");
 
-
+const msg1 = `Lift off! 🚀`
+const msg2 = `Start the engines! 💥`
+const msg3 = `Start the engines! 💥`
 
 // ITERATION 1: Add event listener to the start button
 
@@ -15,9 +17,8 @@ const toastMessage = document.querySelector("#toast-message");
 startButton.addEventListener("click", startCountdown);
 closeToast.addEventListener("click", closeToastFunc);
 
-
-
 // ITERATION 2: Start Countdown
+
 function startCountdown() {
 
   console.log("startCountdown called!");
@@ -26,33 +27,40 @@ function startCountdown() {
 
   remainingTime = 10;
 
-  const intervalFunc = setInterval(() => {
-    if (remainingTime === 0) {
+  showToast(msg1);
 
+  const intervalFunc = setInterval(() => {
+
+    if (remainingTime > 0) {
+
+      switch(remainingTime) {
+
+        case 10:
+          showToast(msg1);
+          break;
+
+        case 6:
+          showToast(msg2);
+          break;
+      
+        case 1:
+          showToast(msg3);
+          break;
+      
+      }
+
+      remainingTime--;
+      time.innerText = remainingTime;
+      
+
+    } else {
+      
+      time.innerText = remainingTime;
       startButton.disabled = false;
       clearInterval(intervalFunc);
 
-    } else if (remainingTime === 1) {
-
-      toastMessage.innerText = `Lift off! 🚀`;
-      showToast();
-      remainingTime--;
-      time.innerText = remainingTime;
-
-    } else if (remainingTime === 6) {
-
-      toastMessage.innerText = `Start the engines! 💥`;
-      showToast();
-      remainingTime--;
-      time.innerText = remainingTime;
-
-    } else {
-      toastMessage.innerText = `⏰ Final countdown! ⏰`;
-      showToast();
-      remainingTime--;
-      time.innerText = remainingTime;
-
     }
+    
 
   }, 1000);
 
@@ -61,12 +69,16 @@ function startCountdown() {
 
 
 
+
 // ITERATION 3: Show Toast
 function showToast(message) {
+
   console.log("showToast called!");
 
-  toast.setAttribute("class", "toast show")
-  toast.style.visibility = "visible";
+  toastMessage.innerText = message;
+
+  toast.classList.remove(`hide`);
+  toast.classList.add(`show`);
 
   setTimeout(closeToastFunc, 3000);
 
@@ -76,7 +88,8 @@ function showToast(message) {
 // BONUS: ITERATION 4: TOAST CLOSE BUTTON
 
 function closeToastFunc() {
-  toast.style.visibility = "hidden";
 
+  toast.classList.remove(`show`);
+  toast.classList.add(`hide`);
 
 }
