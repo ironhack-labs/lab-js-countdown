@@ -1,6 +1,10 @@
-const DURATION = 10; // 10 seconds
-let remainingTime = DURATION; // Countdown starting from 10
-let timer = null; // Variable to store the interval
+let remainingTime = 10; // Countdown starting from 10
+
+const startButton = document.querySelector("#start-btn");
+const time = document.querySelector("#time");
+const toast = document.querySelector(".toast");
+const closeToast = document.querySelector("#close-toast");
+const toastMessage = document.querySelector("#toast-message");
 
 
 
@@ -8,15 +12,50 @@ let timer = null; // Variable to store the interval
 
 // Your code goes here ...
 
+startButton.addEventListener("click", startCountdown);
+closeToast.addEventListener("click", closeToastFunc);
 
 
 
 // ITERATION 2: Start Countdown
 function startCountdown() {
+
   console.log("startCountdown called!");
 
+  startButton.disabled = true;
 
-  // Your code goes here ...
+  remainingTime = 10;
+
+  const intervalFunc = setInterval(() => {
+    if (remainingTime === 0) {
+
+      startButton.disabled = false;
+      clearInterval(intervalFunc);
+
+    } else if (remainingTime === 1) {
+
+      toastMessage.innerText = `Lift off! 🚀`;
+      showToast();
+      remainingTime--;
+      time.innerText = remainingTime;
+
+    } else if (remainingTime === 6) {
+
+      toastMessage.innerText = `Start the engines! 💥`;
+      showToast();
+      remainingTime--;
+      time.innerText = remainingTime;
+
+    } else {
+      toastMessage.innerText = `⏰ Final countdown! ⏰`;
+      showToast();
+      remainingTime--;
+      time.innerText = remainingTime;
+
+    }
+
+  }, 1000);
+
 }
 
 
@@ -26,13 +65,18 @@ function startCountdown() {
 function showToast(message) {
   console.log("showToast called!");
 
-  // Your code goes here ...
+  toast.setAttribute("class", "toast show")
+  toast.style.visibility = "visible";
+
+  setTimeout(closeToastFunc, 3000);
+
+}
 
 
+// BONUS: ITERATION 4: TOAST CLOSE BUTTON
 
+function closeToastFunc() {
+  toast.style.visibility = "hidden";
 
-  // BONUS: ITERATION 4: TOAST CLOSE BUTTON
-
-  // Your code goes here ...
 
 }
