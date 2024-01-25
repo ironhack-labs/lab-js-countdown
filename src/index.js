@@ -24,9 +24,19 @@ function startCountdown() {
     time.innerHTML = `${counter}`
     counter--;
 
+    
+    
+    if (counter === 9) {
+        showToast("⏰ Final countdown! ⏰")
+    } else if (counter === 5) {
+        showToast("Start the engines! 💥")
+    } else if (counter === 0) {
+        showToast("Lift off! 🚀")
+    };
+
     if (counter < 0) {
       clearInterval(id);
-      showToast("Start the engines! 💥")
+
     };
   }, 1000);
 
