@@ -63,6 +63,17 @@ git push origin master
 
 ## Instructions
 
+Your task in the following iterations is to implement the countdown timer and the toast messages.<br>
+By the end of the lab, you should have a countdown timer that looks and works like this:
+
+<p align="center">
+  <img src="https://education-team-2020.s3.eu-west-1.amazonaws.com/web-dev/labs/lab-js-countdown/04-lab-js-countdown-iteration-5.gif" width="600" alt="finished lab example">
+</p>
+
+<br>
+
+### Iteration 0 | Starter Code
+
 Before you start working on the iterations, take a moment and review the starter code provided in the files `index.html`, `styles/style.css`, and `src/index.js`.
 
 <br>
@@ -91,15 +102,7 @@ Next, open the `index.html` file in your browser using the Live Server extension
 
 <br>
 
-The countdown timer is currently set to ***10*** seconds - this value is hard-coded in the `index.html` file. There is also a ***start button*** that doesn't do anything yet, and a ***toast message*** that is initially hidden (you can see it in the HTML code).
-
-
-
-Your task in the following iterations is to implement the countdown timer and the toast message that appears when the countdown reaches 0. By the end of the lab, you should have a countdown timer that looks and works like this:
-
-<p align="center">
-  <img src="https://education-team-2020.s3.eu-west-1.amazonaws.com/web-dev/labs/lab-js-countdown/04-lab-js-countdown-iteration-5.gif" width="600" alt="finished lab example">
-</p>
+The countdown timer is currently set to ***10*** seconds - this value is hard-coded in the `index.html` file.<br>There is also a ***start button*** that doesn't do anything yet, and a ***toast message*** that is initially hidden (you can see it in the HTML code).
 
 
 <br>
@@ -134,13 +137,14 @@ Go ahead and add a *click* event listener to the start button. When clicked, the
 
 ### Iteration 2 | Start the Countdown Timer
 
-With the event listener now set up on the start button to trigger the `startCountdown()` function, our next step is to implement the function logic.
+We have set up the listener on the start button to trigger `startCountdown()`. The next step is to implement the function logic.
 
 <br>
 
-The `startCountdown()` function should start a countdown timer that runs for 10 seconds. Every second, the remaining time should be updated on the screen and the countdown timer should stop when the remaining time reaches 0.
+The `startCountdown()` function should start a countdown timer that runs for 10 seconds. Every second, the shown remaining time should be decreased by 1. Once the the remaining time reaches 0, the countdown timer should stop.
 
 
+<br>
 
 Here are the steps you should follow to implement the function logic:
 - Start the countdown timer using `setInterval()` that runs in intervals of 1 second (1000 milliseconds).
@@ -151,7 +155,7 @@ Here are the steps you should follow to implement the function logic:
 
 <br>
 
-The start button (`button#start-btn`) should be disabled during the countdown so that the user can't click on it during the countdown. You need to use the `disabled` property for this ([example](https://www.w3schools.com/jsref/prop_pushbutton_disabled.asp)).
+The start button (`#start-btn`) should be disabled during the countdown using the `disabled` property, so that the user can't click it. See [example](https://www.w3schools.com/jsref/prop_pushbutton_disabled.asp).
 
 <br>
 
@@ -175,26 +179,6 @@ The start button (`button#start-btn`) should be disabled during the countdown so
 
 ### Iteration 3 | Show Toast
 
-A *Toast* is a small message that appears on the screen for a few seconds. It's usually used to display a feedback, notifications, or a confirmation message to the user. For example, when you make a purchase on Amazon, or send an email using Gmail, a toast message appears to confirm that the operations was successful.
-
-
-<details>
-  <summary><b>See Example</b></summary>
-
-  <br>  
-
-  <p align="center">
-    <img src="https://education-team-2020.s3.eu-west-1.amazonaws.com/web-dev/labs/lab-js-countdown/toast-message-example.png" width="350" alt="Gmail toast message example">
-  </p>
-
-  <br>
-
-  <hr>
-
-</details>
-
-<br> 
-
 As the last step in the previous iteration, when the countdown timer reaches 0, we call a function called `showToast()`, however the function logic is not implemented yet. In this iteration, we'll implement the `showToast()` function so that it displays a toast message on the screen.
 
 <br>
@@ -211,7 +195,8 @@ The `index.html` file already contains the HTML for the *toast card* (`div#toast
 
 <br>
 
-The toast card is set to be hidden at first and should only be shown when the countdown timer reaches 0.<br>
+The toast card is set to be hidden at first and should only be shown when the countdown timer reaches 0.
+
 To show the toast card element, we need to update the CSS property `display` to `"block"`. We already have a CSS class called `show` that does this. To show the toast card, we simply add the `"show"` class to the toast card, and it will become visible. We will use the `showToast()` function to do this.
 
 
@@ -333,6 +318,25 @@ Happy coding! :blue_heart:
   [Back to top](#faqs)
 
 </details>
+
+<details>
+  <summary>What is a <em>Toast Card (Toast Message)</em>?</summary>
+  <br>
+
+A *Toast* is a small message that appears on the screen for a few seconds. It's usually used to display a feedback, notifications, or a confirmation message to the user. For example, when you make a purchase on Amazon, or send an email using Gmail, a toast message appears to confirm that the operations was successful.
+
+  <br>  
+
+  <p align="center">
+    <img src="https://education-team-2020.s3.eu-west-1.amazonaws.com/web-dev/labs/lab-js-countdown/toast-message-example.png" width="350" alt="Gmail toast message example">
+  </p>
+
+  <br>
+
+  <hr>
+
+</details>
+
 
 <details>
   <summary>How to use <code>setTimeout()</code> and <code>clearTimeout()</code>?</summary>
