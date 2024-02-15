@@ -5,7 +5,6 @@ const timeContainer = document.getElementById("time")
 const toastModal = document.getElementById("toast")
 const closeToast = document.getElementById("close-toast")
 const toastMsg = document.getElementById("toast-message")
-console.log(toastMsg)
 
 
 // ITERATION 1: Add event listener to the start button
@@ -19,7 +18,6 @@ closeToast.addEventListener('click', closeToastModal)
 // Your code goes here ...
 
 function startCountdown() {
-  console.log("startCountdown called!");
   remainingTime = DURATION
   timeContainer.innerText = `${remainingTime}`
   let timer = setInterval(() => {
@@ -46,7 +44,6 @@ function startCountdown() {
 
 // ITERATION 3: Show Toast
 function showToast(message) {
-  console.log("showToast called!");
   toastMsg.textContent = message
   // Your code goes here ...
   toastModal.style.visibility = "visible"
