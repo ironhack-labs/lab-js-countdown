@@ -23,7 +23,7 @@ function startCountdown() {
   let timer = setInterval(() => {
     remainingTime--
     timeContainer.innerText = `${remainingTime}`
-
+    startBtn.disabled = true
     if (remainingTime === 9) {
       showToast("⏰ Final countdown! ⏰")
     } 
@@ -32,6 +32,7 @@ function startCountdown() {
 
     
     if (remainingTime <= 0) {
+      startBtn.disabled = false
       clearInterval(timer)
       showToast("Lift off! 🚀")
     }
@@ -49,10 +50,17 @@ function showToast(message) {
   toastModal.style.visibility = "visible"
   toastModal.classList.add("show")
 
-  setTimeout(() => {
+  let timeout = setTimeout(() => {
     toastModal.classList.remove("show")
     toastModal.style.visibility = "hidden"
+
+
+    if (remainingTime <= 0) {
+      clearTimeout(timeout)
+    }
+
   }, 3000);
+
 
 
   
