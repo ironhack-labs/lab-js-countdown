@@ -25,7 +25,7 @@ function startCountdown() {
     remainingTime--;
     timeElement.innerText = remainingTime;
 
-    if (remainingTime <= 10) {
+    if (remainingTime === 9) {
       showToast("⏰ Final countdown! ⏰");
     }
     if (remainingTime === 5) {
