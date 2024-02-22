@@ -58,8 +58,8 @@ button:disabled {
   visibility: hidden;
   min-width: 200px;
   min-height: 20px;
-  background-color: #084fba;
-  color: #fff;
+  background-color: #c2d5f1;
+  color: #fd0303;
   text-align: center;
   border-radius: 2px;
   padding: 16px;
@@ -75,6 +75,7 @@ button:disabled {
 
 .show {
   visibility: visible;
+  background-color: #bcd5fa;
   -webkit-animation: fadein 0.5s, fadeout 0.9s 2.5s;
   animation: fadein 0.5s, fadeout 0.9s 2.5s;
 }
