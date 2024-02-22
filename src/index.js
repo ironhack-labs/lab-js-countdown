@@ -14,6 +14,18 @@ startButton.addEventListener("click", startCountdown);
 // ITERATION 2: Start Countdown
 function startCountdown() {
   console.log("startCountdown called!");
+
+  startButton.toggleAttribute("disabled");
+
+  timer = setInterval(() => {
+    remainingTime--;
+    timeElement.innerText = remainingTime;
+
+    if (remainingTime <= 0) {
+      clearInterval(timer);
+      showToast("Countown finished!");
+    }
+  }, 1000);
 }
 // Your code goes here ...
 
