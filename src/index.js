@@ -13,6 +13,7 @@ let timer = null; // Variable to store the interval
 
 
 // ITERATION 2: Start Countdown
+const toastElement = document.getElementById('toast')
 const startBtn = document.getElementById('start-btn');
 const countDownDisplay = document.getElementById('Countdown')
 const timeElement = document.getElementById('time')
@@ -44,23 +45,23 @@ startBtn.addEventListener('click', () => {
 
 
 // ITERATION 3: Show Toast
-const list = toast.classList
-list.add('show');
 
 function showToast(message) {
-  setTimeout(showToast,3000)
-  clearTimeout(showToast,0)
+ console.log('showToast called');
+ toastElement.classList.add('show');
   }
+  setTimeout(() => {
+toastElement.classList.remove('show')
+  },3000)
 
   console.log("showToast called!");
 
-  // Your code goes here ...
+  // REMEMBER TO ADD A CONST FOR EACH NEW 
 
 
 
 
   // BONUS: ITERATION 4: TOAST CLOSE BUTTON
 
-  // Your code goes here ...
 
 
