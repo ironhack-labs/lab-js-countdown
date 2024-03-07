@@ -19,21 +19,20 @@ function startCountdown() {
   startButton.disabled = true;
   // Your code goes here ...
   timer = setInterval(() => {
-    remainingTime--;
-    console.log(remainingTime);
     timeShow.textContent = remainingTime;
-    if (remainingTime == 0) {
+    if (timeShow.textContent == 10) {
+      showToast("⏰ Final countdown! ⏰");
+    } else if (timeShow.textContent == 5) {
+      showToast("Start the engines! 💥");
+    } else if (remainingTime == 0) {
       clearInterval(timer);
       console.log("testfinal");
       showToast("Lift off! 🚀");
     }
+    remainingTime--;
   }, 200);
 }
-if (remainingTime === 9) {
-  showToast("⏰ Final countdown! ⏰");
-} else if (remainingTime === 5) {
-  showToast("Start the engines! 💥");
-}
+
 // ITERATION 3: Show Toast
 function showToast(message) {
   console.log("showToast called!");
