@@ -13,6 +13,9 @@ const closeToast = document.getElementById("close-toast");
 const toastMessage = toast.querySelector("#toast-message");
 
 startButton.addEventListener("click", startCountdown);
+closeToast.addEventListener("click", () => {
+  toast.classList.remove("show");
+});
 
 // ITERATION 2: Start Countdown
 function startCountdown(messages) {
@@ -59,7 +62,5 @@ function showToast(message) {
 
   // Your code goes here ...
 
-  closeToast.addEventListener("click", () => {
-    toast.classList.remove("show");
-  });
+
 }
