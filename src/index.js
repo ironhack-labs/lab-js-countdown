@@ -19,25 +19,26 @@ function startCountdown() {
   // Your code goes here ...
   timer = DURATION;
   let countDownInterval = setInterval(() => {
-    if (timer == 10) {
+    if (remainingTime == 10) {
       showToast("⏰ Final countdown! ⏰");
     }
-    timer--;
+    remainingTime--;
     showTimer();
-    if (timer == 5) {
+    if (remainingTime == 5) {
       showToast("Start the engines! 💥");
     }
-    if (timer == 0) {
+    if (remainingTime == 0) {
       clearInterval(countDownInterval);
       showToast("Lift off! 🚀");
       btnStart.disabled = false;
+      return;
     }
   }, 1000);
 }
 
 function showTimer() {
   const timeRemainingContainer = document.getElementById("time");
-  timeRemainingContainer.innerText = `${timer}`;
+  timeRemainingContainer.innerText = `${remainingTime}`;
 }
 
 // ITERATION 3: Show Toast
@@ -51,6 +52,10 @@ function showToast(message) {
   toastView.classList.add("show");
   const toastMessageContainer = document.getElementById("toast-message");
   toastMessageContainer.innerText = message;
+
+  setTimeout(() => {
+    toastView.classList.remove("show");
+  }, 3000);
 
   document.getElementById("close-toast").addEventListener("click", function () {
     toastView.classList.remove("show");
