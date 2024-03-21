@@ -17,16 +17,8 @@ btnStart.addEventListener("click", function () {
 // ITERATION 2: Start Countdown
 function startCountdown() {
   // Your code goes here ...
-
+  showTimer();
   timer = setInterval(() => {
-    if (remainingTime == 10) {
-      showToast("⏰ Final countdown! ⏰");
-    }
-    remainingTime--;
-    showTimer();
-    if (remainingTime == 5) {
-      showToast("Start the engines! 💥");
-    }
     if (remainingTime == 0) {
       clearInterval(timer);
       showToast("Lift off! 🚀");
@@ -34,6 +26,14 @@ function startCountdown() {
       remainingTime = DURATION;
       return;
     }
+    if (remainingTime == 5) {
+      showToast("Start the engines! 💥");
+    }
+    if (remainingTime == 10) {
+      showToast("⏰ Final countdown! ⏰");
+    }
+    remainingTime--;
+    showTimer();
   }, 1000);
 }
 
