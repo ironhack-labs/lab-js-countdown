@@ -16,7 +16,7 @@ closeButton.addEventListener("click", function () {
 });
 
 document.querySelector("#time").innerText = DURATION;
-remainingTime = DURATION - 1;
+remainingTime = DURATION;
 
 // ITERATION 2: Start Countdown
 function startCountdown() {
