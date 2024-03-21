@@ -17,8 +17,8 @@ btnStart.addEventListener("click", function () {
 // ITERATION 2: Start Countdown
 function startCountdown() {
   // Your code goes here ...
-  timer = DURATION;
-  let countDownInterval = setInterval(() => {
+
+  timer = setInterval(() => {
     if (remainingTime == 10) {
       showToast("⏰ Final countdown! ⏰");
     }
@@ -28,9 +28,10 @@ function startCountdown() {
       showToast("Start the engines! 💥");
     }
     if (remainingTime == 0) {
-      clearInterval(countDownInterval);
+      clearInterval(timer);
       showToast("Lift off! 🚀");
       btnStart.disabled = false;
+      remainingTime = DURATION;
       return;
     }
   }, 1000);
