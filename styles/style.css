@@ -15,6 +15,15 @@ main {
   align-items: center;
 }
 
+#time-wrapper {
+  width: 250; /* 250px + 2 * 8px border */
+  height: 250; /* 250px + 2 * 8px border */
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 #time {
   font-size: 120px; /* Doubled font size */
   font-weight: bold; /* Bold font */
@@ -30,6 +39,7 @@ main {
   width: 250px; /* Adjusted for larger font size */
   height: 250px; /* Adjusted for larger font size */
 }
+
 
 button {
   padding: 10px 20px;
@@ -109,4 +119,19 @@ button:disabled {
   color: white;
   cursor: pointer;
   overflow: hidden;
+}
+
+@keyframes dissolveAndMoveUp {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-350px); /* Adjust as needed */
+    opacity: 0;
+  }
+}
+
+.dissolve-move-up {
+  animation: dissolveAndMoveUp 5s forwards; /* 'forwards' makes the element stay in the end state */
 }
