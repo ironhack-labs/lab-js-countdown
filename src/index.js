@@ -42,14 +42,14 @@ function startCountdown() {
 function showToast(message) {
 
   // Your code goes here ...
-  const tostElement = document.querySelector("#toast");
-  tostElement.classList.add("show");
+  const toastElement = document.querySelector("#toast");
+  toastElement.classList.add("show");
 
-  const toastMessage = tostElement.querySelector("#toast-message");
+  const toastMessage = toastElement.querySelector("#toast-message");
   toastMessage.innerText = message;
 
   const toastMessageTimeout = setTimeout(() => {
-    tostElement.classList.remove("show");
+    toastElement.classList.remove("show");
   }, 3000);
 
 
@@ -58,7 +58,7 @@ function showToast(message) {
   // Your code goes here ...
   const closeToast = document.querySelector("#close-toast");
   closeToast.addEventListener("click", () => {
-    tostElement.classList.remove("show");
+    toastElement.classList.remove("show");
     clearTimeout(toastMessageTimeout);
   });
 }
