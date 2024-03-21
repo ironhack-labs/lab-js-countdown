@@ -27,8 +27,8 @@ function startCountdown() {
       showToast("Start the engines! 💥");
 
     if (remainingTime === 0) {
-      showToast("Lift off! 🚀");
       clearInterval(timer);
+      showToast("Lift off! 🚀");
       document.querySelector("#start-btn").disabled = false;
     }
     remainingTime -= 1;
