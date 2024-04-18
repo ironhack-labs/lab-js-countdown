@@ -55,7 +55,7 @@ button:disabled {
 
 
 .toast {
-  visibility: hidden;
+  visibility:hidden;
   min-width: 200px;
   min-height: 20px;
   background-color: #084fba;
