@@ -5,51 +5,51 @@ body, html {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: 'Arial', sans-serif;
-  background-color: #f3f3f3;
+  font-family: 'Roboto', sans-serif;
+  background-color: #162d81;
 }
 
 main {
   display: flex;
-  flex-direction: column;
+  flex-flow: row wrap;
   align-items: center;
 }
 
 #time {
-  font-size: 120px; /* Doubled font size */
+  font-size: 80px; /* Doubled font size */
   font-weight: bold; /* Bold font */
-  color: #084fba; /* Space mission inspired blue */
+  color: #ffffff; /* Space mission inspired blue */
   background-color: transparent;
-  border: 8px solid #007bff; /* Thick border with the same color */
   padding: 20px;
   border-radius: 50%; /* Circular shape */
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  width: 250px; /* Adjusted for larger font size */
-  height: 250px; /* Adjusted for larger font size */
+  width: 320px; /* Adjusted for larger font size */
+  height: 320px; /* Adjusted for larger font size */
 }
 
 button {
-  padding: 10px 20px;
+  padding: 16px 24px;
   border: none;
-  border-radius: 5px;
+  border-radius: 24px;
   cursor: pointer;
   font-size: 16px;
+  font-weight: bold; /* Bold font */
+  text-transform: uppercase;
   margin: 0 auto;
   margin-top: 20px;
-  background-color: #084fba;
+  background-color: #158653;
   color: white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 button:hover {
-  background-color: #007bff;
+  background-color: #169e61;
 }
 
 button:disabled {
-  background-color: #ccc;
+  background-color: #3950a1;
   cursor: not-allowed;
 }
 
