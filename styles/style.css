@@ -75,6 +75,8 @@ button:disabled {
 
 .show {
   visibility: visible;
+  background-color: #084fba;
+
   -webkit-animation: fadein 0.5s, fadeout 0.9s 2.5s;
   animation: fadein 0.5s, fadeout 0.9s 2.5s;
 }
