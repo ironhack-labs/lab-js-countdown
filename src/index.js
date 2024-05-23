@@ -1,38 +1,52 @@
-const DURATION = 10; // 10 seconds
-let remainingTime = DURATION; // Countdown starting from 10
+const counter = 10; // 10 seconds
+let remainingTime = counter; // Countdown starting from 10
 let timer = null; // Variable to store the interval
-
-
+let toastTimeout = null;
+const startButton = document.querySelector("#start-btn");
+const toast = document.querySelector(".toast");
+const closetoast = document.querySelector("#close-toast");
+const toastMessage = document.querySelector("#toast-message");
+const timerElement = document.querySelector("#time");
 
 // ITERATION 1: Add event listener to the start button
+startButton.addEventListener("click", () => {
+  startCountdown();
+});
 
-// Your code goes here ...
+closetoast.addEventListener("click", () => {
+  toast.classList.remove("show");
+  clearTimeout(toastTimeout);
+});
 
-
-
-
-// ITERATION 2: Start Countdown
-function startCountdown() {
-  console.log("startCountdown called!");
-
-
-  // Your code goes here ...
+function showToast(message) {
+  toastMessage.innerText = message;
+  toast.classList.add("show");
+  toastTimeout = setTimeout(() => {
+    console.log("execution");
+    toast.classList.remove("show");
+  }, 3000);
 }
 
+function startCountdown() {
+  remainingTime = counter;
+  startButton.disabled = true;
 
+  timer = setInterval(() => {
+    remainingTime -= 1;
+    timerElement.innerText = remainingTime;
 
-
-// ITERATION 3: Show Toast
-function showToast(message) {
-  console.log("showToast called!");
-
-  // Your code goes here ...
-
-
-
-
-  // BONUS: ITERATION 4: TOAST CLOSE BUTTON
-
-  // Your code goes here ...
-
+    if (remainingTime === counter - 1) {
+      showToast("⏰ Final countdown! ⏰");
+    } else if (remainingTime === counter / 2) {
+      showToast("Start the engines! 💥");
+    } else if (remainingTime <= 0) {
+      timerElement.innerText = remainingTime;
+      showToast("Lift off! 🚀");
+      clearInterval(timer);
+      setTimeout(() => {
+        timerElement.innerText = counter;
+        startButton.disabled = false;
+      }, 3000);
+    }
+  }, 1000);
 }
