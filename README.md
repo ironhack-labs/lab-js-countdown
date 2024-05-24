@@ -233,7 +233,6 @@ Here's what you need to do to implement the `showToast()` function:
 ### Bonus: Iteration 4 | Toast Close Button
 
 The toast card element has a close button (`span#close-toast`), which currently doesn't do anything. The button should allow the user to close the toast card, even before the 3 seconds timeout is reached.
-
 Add a 'click' event listener to the close button. When clicking the "x" button, the event should clear the timeout and hide the toast card.
 To make the toast card disappear, you need to remove the class `"show"` from the element's class list, in the same way you did in the previous iteration.
 
