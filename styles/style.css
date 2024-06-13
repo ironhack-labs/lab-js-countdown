@@ -53,7 +53,6 @@ button:disabled {
   cursor: not-allowed;
 }
 
-
 .toast {
   visibility: hidden;
   min-width: 200px;
@@ -78,7 +77,6 @@ button:disabled {
   -webkit-animation: fadein 0.5s, fadeout 0.9s 2.5s;
   animation: fadein 0.5s, fadeout 0.9s 2.5s;
 }
-
 
 @-webkit-keyframes fadein {
   from {bottom: 0; opacity: 0;}
