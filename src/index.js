@@ -7,7 +7,7 @@ let timer = null; // Variable to store the interval
 // ITERATION 1: Add event listener to the start button
 
 // Your code goes here ...
-
+startBtn.addEventListener("click", startCountdown);
 
 
 
@@ -17,6 +17,21 @@ function startCountdown() {
 
 
   // Your code goes here ...
+  timer = setInterval(() => {
+    remainingTime--
+
+    const catTag = document.querySelector('#time')
+    catTag.innerHTML = `${remainingTime}`
+    document.querySelector('#startBtn').disabled = true;
+
+    if (remainingTime === 0) {
+      clearInterval(timer)
+      showToast()
+
+    }
+
+  }, 1000)
+
 }
 
 
@@ -27,12 +42,30 @@ function showToast(message) {
   console.log("showToast called!");
 
   // Your code goes here ...
+  const list = document.querySelector('#toast').classList;
+  list.add('show');
 
+  const timeoutId = setTimeout(() => {
+    const list = document.querySelector('#toast').classList;
+    list.remove('show');
 
+  }, 3000)
 
+  if (timeoutId === 0) {
+    clearTimeout(timeoutId)
 
-  // BONUS: ITERATION 4: TOAST CLOSE BUTTON
+  }
 
-  // Your code goes here ...
 
 }
+
+
+
+
+
+
+// BONUS: ITERATION 4: TOAST CLOSE BUTTON
+
+// Your code goes here ...
+
+
