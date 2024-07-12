@@ -9,15 +9,37 @@ let timer = null; // Variable to store the interval
 // Your code goes here ...
 
 
+const startButtonElement = document.querySelector("#start-btn");
+
+
+startButtonElement.onclick = function() {
+  
+  startCountdown()
+};
+
+
+
 
 
 // ITERATION 2: Start Countdown
 function startCountdown() {
+  const timeElement = document.querySelector("#time");
+  startButtonElement.disabled = true
   console.log("startCountdown called!");
+  timer = setInterval(() =>{
+    timeElement.textContent = remainingTime;
 
+    if (remainingTime === 0) {
+      clearInterval(timer);
+      showToast("Lift off! 🚀");
+    }
+
+    remainingTime--;
+  }, 1000);
+}
 
   // Your code goes here ...
-}
+
 
 
 
@@ -27,8 +49,9 @@ function showToast(message) {
   console.log("showToast called!");
 
   // Your code goes here ...
-
-
+  const showToastElement = document.querySelector("#toast");
+  
+  showToastElement.classList.add("show");
 
 
   // BONUS: ITERATION 4: TOAST CLOSE BUTTON
