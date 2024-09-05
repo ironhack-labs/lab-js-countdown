@@ -8,16 +8,34 @@ let timer = null; // Variable to store the interval
 
 // Your code goes here ...
 
-
-
+let firstButton= document.querySelector("#start-btn")
+firstButton.addEventListener("click", ()=>{
+  startCountdown()
+  
+})
 
 // ITERATION 2: Start Countdown
 function startCountdown() {
   console.log("startCountdown called!");
 
+  const cuentaRegresiva= document.querySelector("#time")
+  let timeLeft=10;
 
-  // Your code goes here ...
+  cuentaRegresiva.innerHTML=timeLeft;
+
+  let temporizador= setInterval(()=>{
+    timeLeft--;
+    cuentaRegresiva.innerHTML=timeLeft;
+    if(timeLeft<= 0){
+      clearInterval(temporizador);
+      
+    }
+  }, 1000)
+  
+  
 }
+
+
 
 
 
@@ -27,12 +45,28 @@ function showToast(message) {
   console.log("showToast called!");
 
   // Your code goes here ...
+const tarjeta= document.querySelector("#toast");
+tarjeta.classList.add("show");
+
+let tiempoQueQueda=3;
 
 
+let intevalId= setInterval(()=>{
+  tiempoQueQueda--;
+
+  if(tiempoQueQueda <= 0){
+    
+  clearInterval(intevalId)
+  tarjeta.classList.remove("show")
+  }
+  
+}, 3000)
+}
 
 
   // BONUS: ITERATION 4: TOAST CLOSE BUTTON
 
   // Your code goes here ...
 
-}
+
+   
