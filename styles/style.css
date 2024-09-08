@@ -68,15 +68,14 @@ button:disabled {
   left: 50%;
   bottom: 26px;
   font-size: 17px;
-  z-index: 1;
   transform: translateX(-50%); /* Center the toast dynamically */ 
-  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
 }
 
 .show {
   visibility: visible;
-  -webkit-animation: fadein 0.5s, fadeout 0.9s 2.5s;
-  animation: fadein 0.5s, fadeout 0.9s 2.5s;
+  opacity: 1;
 }
 
 
@@ -108,5 +107,4 @@ button:disabled {
   font-weight: bold;
   color: white;
   cursor: pointer;
-  overflow: hidden;
 }
