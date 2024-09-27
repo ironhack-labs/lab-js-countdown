@@ -1,38 +1,92 @@
-const DURATION = 10; // 10 seconds
-let remainingTime = DURATION; // Countdown starting from 10
-let timer = null; // Variable to store the interval
+let remainingTime = 10; // Countdown starting from 10
 
+const startButton = document.querySelector("#start-btn");
+const time = document.querySelector("#time");
+const toast = document.querySelector(".toast");
+const closeToast = document.querySelector("#close-toast");
+const toastMessage = document.querySelector("#toast-message");
 
+const msg1 = `⏰ Final countdown! ⏰`
+const msg2 = `Start the engines! 💥`
+const msg3 = `Lift off! 🚀`
 
 // ITERATION 1: Add event listener to the start button
 
 // Your code goes here ...
 
-
-
+startButton.addEventListener("click", startCountdown);
+closeToast.addEventListener("click", closeToastFunc);
 
 // ITERATION 2: Start Countdown
+
 function startCountdown() {
+
   console.log("startCountdown called!");
 
+  startButton.disabled = true;
 
-  // Your code goes here ...
+  remainingTime = 10;
+
+  showToast(msg1);
+
+  const intervalFunc = setInterval(() => {
+
+    if (remainingTime > 0) {
+
+      switch(remainingTime) {
+
+        case 10:
+          showToast(msg1);
+          break;
+
+        case 6:
+          showToast(msg2);
+          break;
+      
+      }
+
+      remainingTime--;
+      time.innerText = remainingTime;
+      
+
+    } else if (remainingTime === 0) {
+      
+      showToast(msg3);
+      time.innerText = remainingTime;
+      startButton.disabled = false;
+      clearInterval(intervalFunc);
+
+    }
+    
+
+  }, 1000);
+
 }
+
 
 
 
 
 // ITERATION 3: Show Toast
 function showToast(message) {
+
   console.log("showToast called!");
 
-  // Your code goes here ...
+  toastMessage.innerText = message;
+
+  toast.classList.remove(`hide`);
+  toast.classList.add(`show`);
+
+  setTimeout(closeToastFunc, 3000);
+
+}
 
 
+// BONUS: ITERATION 4: TOAST CLOSE BUTTON
 
+function closeToastFunc() {
 
-  // BONUS: ITERATION 4: TOAST CLOSE BUTTON
-
-  // Your code goes here ...
+  toast.classList.remove(`show`);
+  toast.classList.add(`hide`);
 
 }
