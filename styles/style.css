@@ -1,4 +1,5 @@
-body, html {
+body,
+html {
   width: 100%;
   height: 100%;
   margin: 0;
@@ -16,19 +17,26 @@ main {
 }
 
 #time {
-  font-size: 120px; /* Doubled font size */
-  font-weight: bold; /* Bold font */
-  color: #084fba; /* Space mission inspired blue */
+  font-size: 120px;
+  /* Doubled font size */
+  font-weight: bold;
+  /* Bold font */
+  color: #084fba;
+  /* Space mission inspired blue */
   background-color: transparent;
-  border: 8px solid #007bff; /* Thick border with the same color */
+  border: 8px solid #007bff;
+  /* Thick border with the same color */
   padding: 20px;
-  border-radius: 50%; /* Circular shape */
+  border-radius: 50%;
+  /* Circular shape */
   display: flex;
   justify-content: center;
   align-items: center;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  width: 250px; /* Adjusted for larger font size */
-  height: 250px; /* Adjusted for larger font size */
+  width: 250px;
+  /* Adjusted for larger font size */
+  height: 250px;
+  /* Adjusted for larger font size */
 }
 
 button {
@@ -69,7 +77,8 @@ button:disabled {
   bottom: 26px;
   font-size: 17px;
   z-index: 1;
-  transform: translateX(-50%); /* Center the toast dynamically */ 
+  transform: translateX(-50%);
+  /* Center the toast dynamically */
   overflow: hidden;
 }
 
@@ -81,23 +90,51 @@ button:disabled {
 
 
 @-webkit-keyframes fadein {
-  from {bottom: 0; opacity: 0;}
-  to {bottom: 26px; opacity: 1;}
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+
+  to {
+    bottom: 26px;
+    opacity: 1;
+  }
 }
 
 @keyframes fadein {
-  from {bottom: 0; opacity: 0;}
-  to {bottom: 26px; opacity: 1;}
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+
+  to {
+    bottom: 26px;
+    opacity: 1;
+  }
 }
 
 @-webkit-keyframes fadeout {
-  from {bottom: 26px; opacity: 1;}
-  to {bottom: 0; opacity: 0;}
+  from {
+    bottom: 26px;
+    opacity: 1;
+  }
+
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
 }
 
 @keyframes fadeout {
-  from {bottom: 26px; opacity: 1;}
-  to {bottom: 0; opacity: 0;}
+  from {
+    bottom: 26px;
+    opacity: 1;
+  }
+
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
 }
 
 #close-toast {
