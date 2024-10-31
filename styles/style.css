@@ -56,8 +56,8 @@ button:disabled {
 
 .toast {
   visibility: hidden;
-  min-width: 200px;
-  min-height: 20px;
+  width: 200px;
+  height: 20px;
   background-color: #084fba;
   color: #fff;
   text-align: center;
@@ -69,7 +69,7 @@ button:disabled {
   bottom: 26px;
   font-size: 17px;
   z-index: 1;
-  transform: translateX(-50%); /* Center the toast dynamically */ 
+  transform: translateX(-50%); /* Center the toast dynamically */
   overflow: hidden;
 }
 
