@@ -1,38 +1,44 @@
-const DURATION = 10; // 10 seconds
-let remainingTime = DURATION; // Countdown starting from 10
-let timer = null; // Variable to store the interval
+const DURATION = 10; 
+let remainingTime = DURATION; 
+let timer = null; 
 
+const timeElement = document.getElementById('time');
+const startButton = document.getElementById('start-btn');
+const toastElement = document.getElementById('toast');
+const toastMessage = document.getElementById('toast-message');
+const closeToastButton = document.getElementById('close-toast');
+// التحقق من تحميل العناصر
+console.log("JavaScript file loaded!");
+if (!timeElement || !startButton || !toastElement) {
+  console.error("One or more elements not found!");
+}
 
-
-// ITERATION 1: Add event listener to the start button
-
-// Your code goes here ...
-
-
-
-
-// ITERATION 2: Start Countdown
+startButton.addEventListener('click', startCountdown);
 function startCountdown() {
   console.log("startCountdown called!");
 
+  remainingTime = DURATION;
+  timeElement.textContent = remainingTime; 
 
-  // Your code goes here ...
+  if (timer) {
+    clearInterval(timer);
+  }
+  // تشغيل العداد كل ثانية
+  timer = setInterval(() => {
+    
+    remainingTime--;
+    timeElement.textContent = remainingTime; 
+
+    if (remainingTime == 0) {
+      clearInterval(timer); 
+      showToast("Countdown finished! 🚀");
+    }
+  }, 1000); 
 }
-
-
-
-
-// ITERATION 3: Show Toast
 function showToast(message) {
-  console.log("showToast called!");
+  toastMessage.textContent = message;
+  toastElement.style.display = "block"; 
 
-  // Your code goes here ...
-
-
-
-
-  // BONUS: ITERATION 4: TOAST CLOSE BUTTON
-
-  // Your code goes here ...
-
-}
+closeToastButton.addEventListener('click', () => {
+  toastElement.style.display = "none"; 
+});}
