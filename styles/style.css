@@ -18,9 +18,9 @@ main {
 #time {
   font-size: 120px; /* Doubled font size */
   font-weight: bold; /* Bold font */
-  color: #084fba; /* Space mission inspired blue */
+  color: #e66b07; /* Space mission inspired blue */
   background-color: transparent;
-  border: 8px solid #007bff; /* Thick border with the same color */
+  border: 8px solid #000000; /* Thick border with the same color */
   padding: 20px;
   border-radius: 50%; /* Circular shape */
   display: flex;
@@ -39,7 +39,7 @@ button {
   font-size: 16px;
   margin: 0 auto;
   margin-top: 20px;
-  background-color: #084fba;
+  background-color: #e66b07;
   color: white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
