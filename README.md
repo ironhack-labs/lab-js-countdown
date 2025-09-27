@@ -49,7 +49,7 @@ Now that we have explored the world of asynchronous JavaScript, it is time to pr
 - Upon completion, run the following commands:
 
 ```bash
-git  .
+git  add .
 git commit -m "Solved lab"
 git push origin master
 ```
