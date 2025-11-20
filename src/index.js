@@ -1,38 +1,53 @@
-const DURATION = 10; // 10 seconds
-let remainingTime = DURATION; // Countdown starting from 10
-let timer = null; // Variable to store the interval
+// DOM elements
+const startBtn = document.getElementById('start-btn');
+const timeEl = document.getElementById('time');
+const toastEl = document.getElementById('toast');
+const toastMessageEl = document.getElementById('toast-message');
+const closeToastBtn = document.getElementById('close-toast');
 
+let countdownInterval;
+let toastTimeout;
 
+// Iteration 1: Add event listener to Start button
+startBtn.addEventListener('click', startCountdown);
 
-// ITERATION 1: Add event listener to the start button
-
-// Your code goes here ...
-
-
-
-
-// ITERATION 2: Start Countdown
+// Iteration 2: Start countdown function
 function startCountdown() {
-  console.log("startCountdown called!");
+  let remainingTime = 10;
+  timeEl.textContent = remainingTime;
+  startBtn.disabled = true;
 
+  countdownInterval = setInterval(() => {
+    remainingTime--;
+    timeEl.textContent = remainingTime;
 
-  // Your code goes here ...
+    // Bonus: show different messages at different times
+    if (remainingTime === 10) showToast("⏰ Final countdown! ⏰");
+    if (remainingTime === 5) showToast("Start the engines! 💥");
+
+    if (remainingTime <= 0) {
+      clearInterval(countdownInterval);
+      showToast("Lift off! 🚀");
+      startBtn.disabled = false;
+    }
+  }, 1000);
 }
 
-
-
-
-// ITERATION 3: Show Toast
+// Iteration 3 + Bonus 5: Show toast function
 function showToast(message) {
-  console.log("showToast called!");
+  // clear previous timeout if exists
+  if (toastTimeout) clearTimeout(toastTimeout);
 
-  // Your code goes here ...
+  toastMessageEl.textContent = message;
+  toastEl.classList.add('show');
 
-
-
-
-  // BONUS: ITERATION 4: TOAST CLOSE BUTTON
-
-  // Your code goes here ...
-
+  toastTimeout = setTimeout(() => {
+    toastEl.classList.remove('show');
+  }, 3000);
 }
+
+// Bonus 4: Close toast button
+closeToastBtn.addEventListener('click', () => {
+  if (toastTimeout) clearTimeout(toastTimeout);
+  toastEl.classList.remove('show');
+});
