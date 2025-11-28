@@ -19,6 +19,10 @@ startBtnElement.addEventListener("click", () => {
 // ITERATION 2: Start Countdown
 function startCountdown() {
   // Your code goes here ...
+  //
+  let remainingTime = DURATION; //Joshua's indication to rest the timer to 10, and not to count in negative.
+  counterElement.innerText = remainingTime; //Joshua's indication to rest the timer to 10, and not to count in negative.
+  //
   timer = setInterval(() => {
     remainingTime--;
     counterElement.innerText = remainingTime;
