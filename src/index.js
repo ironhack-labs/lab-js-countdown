@@ -1,38 +1,59 @@
-const DURATION = 10; // 10 seconds
-let remainingTime = DURATION; // Countdown starting from 10
+// --- VARIABLES ---
+let remainingTime = 10; // The countdown starts at 10
 let timer = null; // Variable to store the interval
 
 
+// --- ELEMENTS ---
+const startBtn = document.getElementById("start-btn");
+const timeDisplay = document.getElementById("time");
+const toastElement = document.getElementById("toast");
+const closeToastBtn = document.getElementById("close-toast");
 
-// ITERATION 1: Add event listener to the start button
 
-// Your code goes here ...
+// --- ITERATION 1: Start Button ---
+startBtn.addEventListener("click", () => {
+  startCountdown();
+});
 
 
-
-
-// ITERATION 2: Start Countdown
+// --- ITERATION 2: Start the Countdown 
 function startCountdown() {
   console.log("startCountdown called!");
 
+  // Disable the button so it can't be clicked during countdown
+  startBtn.disabled = true;
 
-  // Your code goes here ...
+  // Reset time in case the user runs it again
+  remainingTime = 10;
+  timeDisplay.innerText = remainingTime;
+
+  timer = setInterval(() => {
+    remainingTime--;
+    timeDisplay.innerText = remainingTime;
+
+    if (remainingTime <= 0) {
+      clearInterval(timer);
+      showToast();
+      // Re-enable button after countdown is over
+      startBtn.disabled = false;
+    }
+  }, 1000);
 }
 
 
+// --- ITERATION 3: Show Toast ---
+function showToast() {
+  // Add the "show" class to make the toast visible
+  toastElement.classList.add("show");
 
+  // Automatically hide the toast after 3 seconds
+  const toastTimeout = setTimeout(() => {
+    toastElement.classList.remove("show");
+  }, 3000);
 
-// ITERATION 3: Show Toast
-function showToast(message) {
-  console.log("showToast called!");
-
-  // Your code goes here ...
-
-
-
-
-  // BONUS: ITERATION 4: TOAST CLOSE BUTTON
-
-  // Your code goes here ...
-
+  // --- BONUS: Iteration 4 | Toast Close Button ---
+  closeToastBtn.addEventListener("click", () => {
+    clearTimeout(toastTimeout); // Stop the 3s timer if user closes manually
+    toastElement.classList.remove("show");
+  });
 }
