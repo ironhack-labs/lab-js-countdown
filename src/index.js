@@ -13,7 +13,9 @@ startButton.addEventListener("click",()=>{
     timer = setInterval(() => {
     remainingTime--
     htmlTimeElement.innerText = remainingTime;
-    
+    if(remainingTime===5){
+      showToast()
+    }
     if(remainingTime === 0){
       clearInterval(timer)
       showToast()
@@ -47,7 +49,9 @@ function showToast(message) {
     if(remainingTime === 10){
       toastMessageElement.innerText = '⏰ Final countdown! ⏰';
     }
-      
+    if(remainingTime === 5){
+      toastMessageElement.innerText = 'Start the engines! 💥';
+    }
     }
 
 
