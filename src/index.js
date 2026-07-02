@@ -2,6 +2,8 @@ const DURATION = 10; // 10 seconds
 let remainingTime = DURATION; // Countdown starting from 10
 let timer = null; // Variable to store the interval
 
+// Student note: reviewed the starter code and will complete the iterations later.
+
 
 
 // ITERATION 1: Add event listener to the start button
