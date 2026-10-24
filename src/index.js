@@ -49,8 +49,9 @@ const toast = document.getElementById("toast")
 
 toast.classList.add("show")
 
-setTimeout(() => {
+const timeOut = setTimeout(() => {
   toast.classList.remove("show")
+  clearTimeout(timeOut)
 }, 3000)
 
   // BONUS: ITERATION 4: TOAST CLOSE BUTTON
