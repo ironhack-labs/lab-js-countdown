@@ -6,7 +6,14 @@ let timer = null; // Variable to store the interval
 
 // ITERATION 1: Add event listener to the start button
 
-// Your code goes here ...
+const countDownButton = document.querySelector("#start-btn"); 
+
+  countDownButton.addEventListener("click", () => {
+    startCountdown(); 
+  });
+
+
+
 
 
 
