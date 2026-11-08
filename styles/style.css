@@ -100,7 +100,7 @@ button:disabled {
   to {bottom: 0; opacity: 0;}
 }
 
-.close-toast {
+#close-toast {
   position: absolute;
   top: 4px;
   right: 8px;

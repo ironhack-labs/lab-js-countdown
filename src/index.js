@@ -17,22 +17,29 @@ function startCountdown() {
   document.querySelector("#start-btn").disabled = true;
 
   timer = setInterval(() => {
+    const timeDisplay = document.querySelector("#time");
+
     remainingTime = remainingTime - 1;
 
     timeDisplay.textContent = remainingTime;
+
+    if (remainingTime === 0) {
+      clearInterval(timer);
+      showToast();
+    }
   }, 1000);
-
-  const timeDisplay = document.querySelector("#time");
-
-  if (remainingTime === 0) {
-    clearInterval(timer);
-    showToast();
-  }
 }
 
 // ITERATION 3: Show Toast
 function showToast(message) {
   console.log("showToast called!");
+
+  const list = document.querySelector(".toast").classList;
+  list.add("show");
+
+  setTimeout(() => {
+    list.remove("show");
+  }, 3000);
 
   // BONUS: ITERATION 4: TOAST CLOSE BUTTON
 
