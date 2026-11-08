@@ -15,19 +15,32 @@ function startCountdown() {
   console.log("startCountdown called!");
 
   const intervalId = setInterval(() => {
+    if (remainingTime === 10) {
+      showToast("⏰ Final countdown! ⏰");
+    }
     //our count-down
     if (remainingTime > 0) {
       remainingTime--; //decrementing remaining time
       let time = document.querySelector("#time"); //getting the html element presenting time
       time.textContent = remainingTime; //setting presented in html time equal to the remaining time
       // Check inside the same tick instead of waiting for the next one
+      if (remainingTime === 5) {
+        showToast("Start the engines! 💥");
+      }
       if (remainingTime === 0) {
-        showToast();
+        showToast("Lift off! 🚀");
         clearInterval(intervalId); //stop count-down
       }
     }
   }, 1000);
 }
+
+//x-button (can stop the timeout even earlier)
+const closeBtn = document.querySelector(`span#close-toast`);
+closeBtn.addEventListener("click", () => {
+  clearTimeout(timeoutId);
+  cardStyle.remove("show");
+});
 
 // ITERATION 3: Show Toast
 function showToast(message) {
@@ -36,16 +49,10 @@ function showToast(message) {
   const card = document.querySelector("#toast"); //get the element
   const cardStyle = card.classList; //get the style of the element
   cardStyle.add("show"); //adding the style
+  document.querySelector("#toast-message").textContent = message; //setting the 'message' text to the card
 
   //setting the timeout to make the card invisible
   let timeoutId = setTimeout(() => {
     cardStyle.remove("show");
   }, 3000);
-
-  //x-button (can stop the timeout even earlier)
-  const closeBtn = document.querySelector(`span#close-toast`);
-  closeBtn.addEventListener("click", () => {
-    clearTimeout(timeoutId);
-    cardStyle.remove("show");
-  });
 }
