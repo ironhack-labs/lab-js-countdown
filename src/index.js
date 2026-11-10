@@ -19,14 +19,14 @@ startCountdownBtn.addEventListener("click", () => {
 
 // ITERATION 2: Start Countdown
 function startCountdown() {
-  remainingTime = 10;
+  remainingTime = DURATION;
   console.log("startCountdown called!");
   startCountdownBtn.disabled = true;
-  timeBox.innerHTML = remainingTime;
+  timeBox.textContent = remainingTime;
   showToast("⏰ Final countdown! ⏰")
 
   timer = setInterval(() => {
-    timeBox.innerHTML = remainingTime;
+    timeBox.textContent = remainingTime;
      if(remainingTime === 5){
       showToast("Start the engines! 💥")
     }
@@ -34,7 +34,7 @@ function startCountdown() {
       showToast("Lift off! 🚀")
       clearInterval(timer);
       startCountdownBtn.disabled = false;
-      timeBox.innerHTML = remainingTime;
+      timeBox.textContent = remainingTime;
     }
     remainingTime--;
   }, 1000)
@@ -51,13 +51,15 @@ function showToast(message) {
     let timer1 = setInterval(() => {
         toastBox.classList.remove("show");
         clearInterval(timer1);
-    },1000)
+    },3000)
 
-    // BONUS: ITERATION 4: TOAST CLOSE BUTTON
-
-    toastCloseBtn.addEventListener("click", () => {
-        toastBox.classList.remove("show");
-    })
+   
 
 
 }
+ // BONUS: ITERATION 4: TOAST CLOSE BUTTON
+
+toastCloseBtn.addEventListener("click", () => {
+  toastBox.classList.remove("show");
+  clearInterval(timer);
+})
